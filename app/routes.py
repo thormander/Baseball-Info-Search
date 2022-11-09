@@ -5,6 +5,7 @@ from app.orm import Analysis
 
 @app.route('/')
 @app.route('/index')
+@login_required
 def index():
 	user = {'username': 'bangsplat'}
 	stats=[]
