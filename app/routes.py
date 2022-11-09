@@ -8,9 +8,8 @@ from flask_login import current_user, login_user, logout_user
 @app.route('/index')
 @login_required
 def index():
-	user = {'username': 'bangsplat'}
 	stats=[]
-	return render_template('index.html',title='Home',user=user,stats=stats)
+	return render_template('index.html',title='Home',stats=stats)
 
 @app.route('/search', methods=['GET','POST'])
 @login_required
