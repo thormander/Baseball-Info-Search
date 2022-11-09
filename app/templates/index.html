@@ -1,8 +1,16 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
+{% block blockname %}
+        <h1>Hello, {{current_user.username}}!</h1>
+	{% if stats %}
+	<table><tr><th>Name</th><th>Year</th><th>RC</th></tr>
+	{% for line in stats %}
+	<tr>
+		<td>{{line.player.name}}</td>
+		<td>{{line.player.year}}</td>
+		<td>{{line.player.RC}}</td>
+	</tr>
+	{% endfor %}
+	</table>
+	{% endif %}
 {% endblock %}
