@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for
 from app import app, db
 from app.forms import SearchForm, RegistrationForm, FavoriteForm
-from app.orm import Analysis, User
+from app.orm import Analysis, User, Favorites
 from flask_login import current_user, login_user, logout_user
 
 @app.route('/', methods=['GET'])
