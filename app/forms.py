@@ -35,5 +35,5 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 class FavoriteForm(FlaskForm):
-    save = BooleanField('Save')
+    save = SubmitField('Save')
     remove = SubmitField('Remove')	
