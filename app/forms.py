@@ -9,6 +9,8 @@ class SearchForm(FlaskForm):
 	# yearid = StringField('Year', validators=[DataRequired()])
 	remember_me = BooleanField('Remember Me')
 	submit = SubmitField('Search')
+        save = SubmitField('Save')
+        remove = SubmitField('Remove')		
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
