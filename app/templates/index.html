@@ -2,13 +2,11 @@
 
 {% block blockname %}
         <h1>Hello, {{current_user.username}}!</h1>
-	{% if stats %}
-	<table><tr><th>Name</th><th>Year</th><th>RC</th></tr>
-	{% for line in stats %}
+	{% if favorite %}
+	<table><tr><th>playerID</th></tr>
+	{% for line in favorite %}
 	<tr>
 		<td>{{line.player.name}}</td>
-		<td>{{line.player.year}}</td>
-		<td>{{line.player.RC}}</td>
 	</tr>
 	{% endfor %}
 	</table>
