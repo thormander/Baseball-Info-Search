@@ -18,11 +18,13 @@ def search():
 	form = SearchForm()
 	if form.validate_on_submit():
 		if 'save' in request.form:
-			db.session.add(form.playerid.data)
+			favorite = Favorites(user=current_user.username,playerid=form.playerid.data)
+			db.session.add(favorite)
 			db.session.commit()
 			flash('playerID saved!')
 		elif 'remove' in request.form:
-			db.session.delete(form.playerid.data)
+			favorite = Favorites(user=current_user.username,playerid=form.playerid.data)
+			db.session.delete(favorite)
 			db.session.commit()
 			flash('playerID removed!')
 		stats = Analysis.query.filter_by(playerid=form.playerid.data).all() #takes in playerid field from user
