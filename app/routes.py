@@ -4,12 +4,12 @@ from app.forms import SearchForm, RegistrationForm
 from app.orm import Analysis, User
 from flask_login import current_user, login_user, logout_user
 
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
+@app.route('/index', methods=['GET'])
 @login_required
 def index():
 	user = current_user.username
-	favorites=[]
+	favorites = Favorite.query.filter(Favorite.username == user).all()
 	return render_template('index.html',title='Home',favorites=favorites)
 
 @app.route('/search', methods=['GET','POST'])
