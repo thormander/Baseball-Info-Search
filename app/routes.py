@@ -16,8 +16,15 @@ def index():
 @login_required
 def search():
 	form = SearchForm()
-	form2 = FavoriteForm()
 	if form.validate_on_submit():
+		if 'save' in request.form:
+			db.session.add(form.playerid.data)
+			db.session.commit()
+			flash('playerID saved!')
+		elif 'remove' in request.form:
+			db.session.delete(form.playerid.data)
+			db.session.commit()
+			flash('playerID removed!')
 		stats = Analysis.query.filter_by(playerid=form.playerid.data).all() #takes in playerid field from user
 		# When new rows are added to analysis table on DB, update below for loop for that paricular row --------
 		for row in stats: 
