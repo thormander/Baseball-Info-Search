@@ -8,7 +8,7 @@ from flask_login import current_user, login_user, logout_user
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-	user = current_user
+	user = current_user.username
 	favorites=[]
 	return render_template('index.html',title='Home',favorites=favorites)
 
