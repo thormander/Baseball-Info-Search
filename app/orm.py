@@ -75,3 +75,10 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+class Favorites(db.Model):
+	__tablename__ = "favorites" # required
+
+	favorites_ID = db.Column(db.Integer,primary_key=True) # required
+	playerid = db.Column(db.String(9))
+	user = db.Column(db.String(50))
