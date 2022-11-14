@@ -9,7 +9,7 @@ from flask_login import current_user, login_user, logout_user
 @login_required
 def index():
 	user = current_user.username
-	favorites = Favorite.query.filter(Favorite.username == user).all()
+	favorites = Favorite.query.filter(Favorite.user == user).all()
 	return render_template('index.html',title='Home',favorites=favorites)
 
 @app.route('/search', methods=['GET','POST'])
