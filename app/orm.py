@@ -8,6 +8,10 @@ class Analysis(db.Model):
 	analysis_ID = db.Column(db.Integer,primary_key=True) # required
 	playerid = db.Column(db.String(9))
 	yearID = db.Column(db.Integer)
+	age = db.Column(db.Integer)
+	birthYear = db.Column(db.Integer)
+	teamID = db.Column(db.String(9))
+	lgID = db.Column(db.String(2))
 	G = db.Column(db.Integer)
 	AB = db.Column(db.Integer)
 	R = db.Column(db.Integer)
@@ -28,7 +32,13 @@ class Analysis(db.Model):
 	OBP = db.Column(db.Numeric) 
 	TB = db.Column(db.Integer)
 	RC = db.Column(db.Numeric)
-	RC27 = db.Column(db.Numeric) 
+	RC27 = db.Column(db.Numeric)
+	PA = db.Column(db.Integer)
+	SLG = db.Column(db.Numeric) 
+	OPS = db.Column(db.Numeric)
+	OPSplus = db.Column(db.Numeric)
+	BPF = db.Column(db.Integer)
+	Pos = db.Column(db.String(9))
 
 	def __repr__(self):
 		return "<analysis(player='%s',RC27='%s')>" % (self.playerid,self.RC27)
