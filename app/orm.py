@@ -44,7 +44,12 @@ class Analysis(db.Model):
 
 	def __repr__(self):
 		return "<analysis(player='%s',RC27='%s')>" % (self.playerid,self.RC27)
-
+	
+	def setPARCper27(self):	
+		outs=self.AB-self.H+self.coalesce(self.CS)+self.coalesce(self.SH)+self.coalesce(self.SF)+self.coalesce(self.GIDP)
+		self.PARCper27 = 27 * self.PARC/outs
+		db.session.commit()
+	
 	def setRC27(self):
 		if self.RC is None:
 			self.setRC()	
