@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block blockname %}
+{% block app_content %}
         <h1>Hello, {{current_user.username}}!</h1>
 	{% if favorites %}
+    	{{ wtf.quick_form(form) }}
 	<table><tr><th>playerID</th></tr>
 	{% for line in favorites %}
 	<tr>
