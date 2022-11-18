@@ -49,7 +49,7 @@ class Analysis(db.Model):
 		if self.RC is None:
 			self.setRC()	
 		outs=self.AB-self.H+self.coalesce(self.CS)+self.coalesce(self.SH)+self.coalesce(self.SF)+self.coalesce(self.GIDP)
-		self.RC27 = 27 * self.RC/outs
+		self.RC27 = round(27 * self.RC/outs, 2)
 		db.session.commit()
 
 	def setRC(self):
