@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for
 from app import app, db
-from app.forms import SearchForm, RegistrationForm, FavoriteForm
+from app.forms import SearchForm, RegistrationForm, FavoriteForm, LoginForm
 from app.orm import Analysis, User, Favorites
 from flask_login import current_user, login_user, logout_user
 
