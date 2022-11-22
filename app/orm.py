@@ -41,6 +41,7 @@ class Analysis(db.Model):
 	Pos = db.Column(db.String(9))
 	PARC = db.Column(db.Numeric)
 	PARCper27 = db.Column(db.Numeric)
+	Name = db.Column(db.String(255))
 
 	def __repr__(self):
 		return "<analysis(player='%s',RC27='%s')>" % (self.playerid,self.RC27)
