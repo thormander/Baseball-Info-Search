@@ -27,7 +27,10 @@ def search():
 			db.session.delete(favorite)
 			db.session.commit()
 			flash('playerID removed!')
+		
 		stats = Analysis.query.filter_by(playerid=form.playerid.data).all() #takes in playerid field from user
+		totals = View.query.filter_by(playerid=form.playerid.data).all()
+		
 		# When new rows are added to analysis table on DB, update below for loop for that paricular row --------
 		for row in stats: 
 			if row.RC27 is None:
