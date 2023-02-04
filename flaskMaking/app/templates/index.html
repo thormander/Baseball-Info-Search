@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>{{current_user.username}} just slid in!</h1>
+	{% if favorites %}
+    <h1>Your Favorites List:</h1>
+	<table><tr><th>Name</th>
+	{% for line in favorites %}
+	<tr>
+		<td>{{line.playerid}}</td>
+	</tr> 	
+	{% endfor %}
+	</table>
+	{% endif %}
+{% endblock %}

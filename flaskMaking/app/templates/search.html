@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %} 
+    <h1>Player {{ title }} </h1>
+    {% if title == 'Search' %}
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.playerid.label }}<br>
+            {{ form.playerid(size=32,placeholder="bangsplat01") }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% else %}
+	{% if stats %}
+        {% if form.playerid.data and current_user.username in favorites %}
+	    	<h3>Player Favorited Already!</h3>
+        	<form method="post">
+        		<input type="submit" name="Remove" value="Remove">
+    		</form>
+	    {% else %}	    
+	    	<h3>Favorite Player?</h3>
+	    	<form method="post">
+    	    	<input type="submit" name="Save" value="Save">
+	    	</form>
+	    {% endif %}    
+	    <center>
+            <table border="1"><tr>
+		    <th title="playerID from Lahman database">PlayerID</th>
+		    <th title="It's the year...">Year</th>
+		    <th title="Age of player">Age</th>
+		    <th title="teamID from Lahman database">Team</th>
+		    <th title="League participated in">Lg</th>
+		    <th title="Games played">G</th>
+		    <th title="Plate Appearences">PA</th>
+		    <th title="At-Bats">AB</th>
+		    <th title="Runs">R</th>
+		    <th title="Hits/Hits allowed">H</th>
+		    <th title="Doubles hit/allowed">2B</th>
+		    <th title="Triples hit/allowed">3B</th>
+		    <th title="Homeruns hit/allowed">HR</th>
+		    <th title="Runs Batted In">RBI</th>
+		    <th title="Stolen Bases">SB</th>
+		    <th title="Caught Stealing">CS</th>
+		    <th title="Bases on balls/walks">BB</th>
+		    <th title="Strikeouts">SO</th>
+		    <th title="Runs Created">RC</th>
+		    <th title="Runs Created per 27">RC27</th>
+		    <th title="On-Base Percentage">OBP</th>
+		    <th title="Slugging Percentage">SLG</th>
+		    <th title="On-base Plus Slugging">OPS</th>
+		    <th title="Total Bases = Singles + 2xDoubles + 3xTriples + 4xHome Runs">TB</th>
+		    <th title="Park Adjusted Runs Created">PARC</th>
+		    <th title="Park Adjusted Runs Created per 27">PARC27</th></tr>
+            {% for line in stats %}
+            <tr>
+            <td>{{line.playerid}}</td>
+            <td>{{line.yearID}}</td>
+		    <td>{{line.age}}</td>
+		    <td>{{line.teamID}}</td>
+		    <td>{{line.lgID}}</td>
+		    <td>{{line.G}}</td>
+		    <td>{{line.PA}}</td>
+		    <td>{{line.AB}}</td>
+		    <td>{{line.R}}</td>
+		    <td>{{line.H}}</td>
+		    <td>{{line.B2}}</td>
+		    <td>{{line.B3}}</td>
+		    <td>{{line.HR}}</td>
+		    <td>{{line.RBI}}</td>
+		    <td>{{line.SB}}</td>
+		    <td>{{line.CS}}</td>
+		    <td>{{line.BB}}</td>
+		    <td>{{line.SO}}</td>
+            <td>{{line.RC}}</td>
+            <td>{{line.RC27}}</td>
+		    <td>{{line.OBP}}</td>
+		    <td>{{line.SLG}}</td>
+		    <td>{{line.OPS}}</td>
+		    <td>{{line.TB}}</td>
+		    <td>{{line.PARC}}</td>
+		    <td>{{line.PARCper27}}</td>
+            </tr>
+            {% endfor %}
+            </table>
+            </center>
+            <center>
+                <img src="https://i.imgur.com/jv0SkY3.png">
+            </center>	
+	{% else %}
+	    <h3>No results found</h3>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

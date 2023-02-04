@@ -1,0 +1,75 @@
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Baseball</title>
+      {% else %}
+      <title>Welcome to Baseball</title>
+      {% endif %}
+    <style>
+	th, td {
+		padding: 5px;
+		text-align: center;
+	}
+	th {
+		background-color: #dbd7d7;
+		color: #821010;
+	}
+	tr:hover {
+		background-color: #f5ecc1;
+	}
+	ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  overflow: hidden;
+	  color: black;
+	  background-color: #c9cbcd;
+	}
+	li {
+	  float: left;
+	  margin: 0 30px 0 30px;
+	}  
+	#logout {
+	   float: right;
+	}
+	li a {
+	  display: block;
+	  color: black;
+	  font-weight: bold;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	}
+	li a:hover {
+	  color: white;
+	  background-color: #111;
+	}
+	</style>
+    
+    </head>
+    <body>
+        <div>
+    		<img src="https://i.imgur.com/Vv8sDAN.png" alt="baseball logo" height="70">
+    		<ul>
+    			<li><a href={{ url_for('index') }} >Home</a></li>
+    			{% if current_user.is_anonymous %}
+    			<li><a href={{ url_for('login') }}>Login</a></li>
+    			{% else %}
+    			<li><a href={{ url_for('search') }} >Search</a></li>
+    			<li id="logout"><a href={{ url_for('logout') }}>Logout</a></li>
+    			{% endif %}
+    		</ul>	
+    	</div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
