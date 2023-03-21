@@ -15,6 +15,7 @@ pip install email-validator
 --------------------------------------------------------
 
 If you need to access MariaDB server:
+
 Passcode: 123
 
 Two test users I registered already:
