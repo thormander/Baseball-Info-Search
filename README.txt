@@ -1,3 +1,6 @@
+![alt text](https://media.discordapp.net/attachments/1037398272219820039/1047273139266134046/Capture.PNG?width=1092&height=541)
+
+
 Packages used for project:
 
 pip install python-dotenv
