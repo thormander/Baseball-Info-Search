@@ -6,10 +6,15 @@ Batting Statistics table generated for Babe Ruth (playerid: ruthba01):
 Packages used for project:
 
 pip install python-dotenv
+
 pip install flask_wtf
+
 pip install flask_sqlalchemy                             ver 22.0.4
+
 pip install pymysql                                      ver 22.0.4
+
 pip install flask-login                                  ver 22.0.4
+
 pip install email-validator
 
 --------------------------------------------------------
