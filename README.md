@@ -13,8 +13,6 @@ pip install flask-login                                  ver 22.0.4
 pip install email-validator
 
 --------------------------------------------------------
-PLEASE USE "http://localhost:5000/" WHEN VIEWING THE WEBPAGE
-
 
 If you need to access MariaDB server:
 Passcode: 123
