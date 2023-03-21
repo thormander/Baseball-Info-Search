@@ -1,6 +1,6 @@
-Example picture of statistic table generated:
+Batting Statistics table generated for Babe Ruth (playerid: ruthba01):
 
-![My Remote Image](https://media.discordapp.net/attachments/1037398272219820039/1042977790644990053/image.png?width=1076&height=541)
+![My Remote Image](https://cdn.discordapp.com/attachments/1037398272219820039/1047273139266134046/Capture.PNG)
 
 
 Packages used for project:
